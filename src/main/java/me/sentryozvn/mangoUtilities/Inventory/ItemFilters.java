@@ -1,6 +1,5 @@
 package me.sentryozvn.mangoUtilities.Inventory;
 
-import me.sentryozvn.mangoUtilities.Enum.CompareType;
 import org.bukkit.Material;
 
 public final class ItemFilters {

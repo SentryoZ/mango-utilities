@@ -95,7 +95,7 @@ public class MangoUtilityCommand implements CommandExecutor, TabCompleter {
                 filter = ItemFilters.mmoItems(mmoItemsType, mmoItemsIdentifier);
                 break;
             default:
-                sender.sendMessage("§cInvalid kind. Use v, mm, or mi.");
+                sender.sendMessage("§cInvalid kind. Use v or mi.");
                 return true;
         }
 
