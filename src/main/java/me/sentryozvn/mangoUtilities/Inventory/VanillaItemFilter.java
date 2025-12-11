@@ -10,7 +10,6 @@ public class VanillaItemFilter implements ItemFilter {
     this.material = material;
   }
 
-
   @Override
   public boolean matches(ItemStack item) {
     if (item == null || item.getType() == Material.AIR) return false;

@@ -11,8 +11,4 @@ public final class ItemFilters {
   public static ItemFilter mmoItems(String type, String identifier) {
     return new MMOItemsItemFilter(type, identifier);
   }
-
-  public static ItemFilter mythicMobs(String id) {
-    return new MythicMobsItemFilter(id);
-  }
 }

@@ -80,13 +80,6 @@ public class MangoUtilityCommand implements CommandExecutor, TabCompleter {
                 }
                 filter = ItemFilters.vanilla(material);
                 break;
-            case "mm":
-                if (!isPluginEnabled("MythicMobs")) {
-                    sender.sendMessage("§cMythicMobs is not installed/enabled on this server.");
-                    return true;
-                }
-                filter = ItemFilters.mythicMobs(typeIdentifier);
-                break;
             case "mi":
                 if (!isPluginEnabled("MMOItems")) {
                     sender.sendMessage("§cMMOItems is not installed/enabled on this server.");
