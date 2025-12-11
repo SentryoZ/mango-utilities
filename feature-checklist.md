@@ -1,0 +1,28 @@
+
+### Features
+
+- [x] Inventory Tools
+  - [x] Test Inventory - Check if player inv have correct item in correct slot
+  - [x] Consume Items - Removes a specific amount of items from the player's inventory.
+  - [x] Item Filters - Specify what item you are searching, support vanilla, MythicMobs Item and MMOItems
+- [ ] MMOItems Support
+  - [ ] Stats
+  - [ ] Upgrade
+  - [ ] Identify
+  - [ ] Add empty gem slot
+  - [ ] Count gem slot
+  - [ ] Get/Set tier
+  - [ ] Regenerate
+- [ ] Custom GUI
+  - [ ] Can put item into GUI
+  - [ ] Run MythicMob Skill when click item
+  - [ ] Run Command when click item
+  - [ ] Can target item in GUI when run MythicMob Skill
+- [ ] MythicMobs
+  - [ ] MMOStat Placeholders for MythicMobs
+  - [ ] runSkillAs Mechanics
+  - [ ] Condition for item in GUI
+- [ ] Commands
+- [ ] Permissions System
+- [ ] Configuration Reload
+- [ ] PlaceholderAPI Integration
