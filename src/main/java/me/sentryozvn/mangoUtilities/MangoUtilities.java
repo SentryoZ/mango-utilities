@@ -9,12 +9,7 @@ public final class MangoUtilities extends JavaPlugin {
   @Override
   public void onEnable() {
     // register commands
-    PluginCommand command = getCommand("mango-utility");
-    if (command != null) {
-      MangoUtilityCommand executor = new MangoUtilityCommand(this);
-      command.setExecutor(executor);
-      command.setTabCompleter(executor);
-    }
+    MangoUtilityCommand mangoUtilityCommand = new MangoUtilityCommand(this);
   }
 
   @Override
