@@ -93,6 +93,7 @@ public class MangoUtilityCommand {
                                 sender.sendMessage("MythicMobs is not enabled.");
                                 return;
                             }
+
                             filter = ItemFilters.mythicMobs(typeId);
                         } else {
                             sender.sendMessage("Invalid item type. Use 'v' for vanilla or 'mi' for MythicMobs.");
