@@ -5,6 +5,7 @@ api-version: '1.21'
 softdepend:
   - MythicMobs
   - MMOItems
+depend: [CommandAPI]
 commands:
   mango-utility:
     description: Mango Utilities main command
