@@ -12,7 +12,7 @@ public final class CommandUtil {
 
   public static @Nullable Material parseMaterial(String input) {
     try {
-      return Material.valueOf(input.toUpperCase(Locale.ROOT));
+      return Material.valueOf(input.toUpperCase());
     } catch (IllegalArgumentException exception) {
       return null;
     }
@@ -58,13 +58,13 @@ public final class CommandUtil {
   }
 
   public static List<String> partial(String value, String typed) {
-    if (value.toLowerCase(Locale.ROOT).startsWith(typed.toLowerCase(Locale.ROOT)))
+    if (value.toLowerCase().startsWith(typed.toLowerCase()))
       return Collections.singletonList(value);
     return Collections.emptyList();
   }
 
   public static List<String> filterStarts(List<String> values, String typed) {
-    String typedLower = typed.toLowerCase(Locale.ROOT);
-    return values.stream().filter(value -> value.toLowerCase(Locale.ROOT).startsWith(typedLower)).toList();
+    String typedLower = typed.toLowerCase();
+    return values.stream().filter(value -> value.toLowerCase().startsWith(typedLower)).toList();
   }
 }

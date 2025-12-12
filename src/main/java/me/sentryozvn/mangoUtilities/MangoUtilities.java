@@ -6,8 +6,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class MangoUtilities extends JavaPlugin {
 
+  private static MangoUtilities instance;
+
   @Override
   public void onEnable() {
+    instance = this;
     // register commands
     PluginCommand command = getCommand("mango-utility");
     if (command != null) {
@@ -20,5 +23,9 @@ public final class MangoUtilities extends JavaPlugin {
   @Override
   public void onDisable() {
     // Plugin shutdown logic
+  }
+
+  public static MangoUtilities getInstance() {
+    return instance;
   }
 }
