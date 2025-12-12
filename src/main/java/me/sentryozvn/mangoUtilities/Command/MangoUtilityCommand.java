@@ -94,13 +94,21 @@ public class MangoUtilityCommand {
                                 return;
                             }
 
-                            filter = ItemFilters.mythicMobs(typeId);
+                            assert typeId != null;
+                            String[] splitParts = typeId.split(":", 2);
+                        String mmoItemsType = splitParts[0];
+                        String mmoItemsIdentifier = splitParts.length > 1 ? splitParts[1] : null;
+                        if (mmoItemsType.isEmpty()) {
+                        sender.sendMessage("§cMMOItems type cannot be empty.");
+                        return;
+                        }
+                        filter = ItemFilters.mmoItems(mmoItemsType, mmoItemsIdentifier);
                         } else {
                             sender.sendMessage("Invalid item type. Use 'v' for vanilla or 'mi' for MythicMobs.");
                             return;
                         }
 
-                        if (filter != null && filter.is and (itemInSlot) && itemInSlot.getAmount() >= amount) {
+                        if (filter != null && filter.matches(itemInSlot) && (itemInSlot.getAmount() >= amount)) {
                             sender.sendMessage(targetPlayer.getName() + " has " + amount + " of " + typeId + " in slot " + slot + ".");
                             found = true;
                             break;
