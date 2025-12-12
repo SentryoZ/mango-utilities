@@ -31,8 +31,7 @@ public class MangoUtilityCommand {
     }
 
     private void registerCommands() {
-        new CommandAPICommand("compare")
-                .withPermission(CommandPermission.fromString("mango.utilities.command.compare"))
+        CommandAPICommand compare = new CommandAPICommand("compare")
                 .withArguments(new Argument<?>[]{
                         new EntitySelectorArgument.OnePlayer("player"),
                         new StringArgument("slot").replaceSuggestions(ArgumentSuggestions.strings(info -> {
@@ -45,17 +44,7 @@ public class MangoUtilityCommand {
                             return slots.toArray(new String[0]);
                         })),
                         new StringArgument("item_type").replaceSuggestions(ArgumentSuggestions.strings("v", "mi")),
-                        new StringArgument("type_id").replaceSuggestions(ArgumentSuggestions.strings(info -> {
-                            String itemType = (String) info.previousArgs().get("item_type");
-                            if (itemType == null) return new String[0];
-                            if (itemType.equalsIgnoreCase("v")) {
-                                return Arrays.stream(Material.values()).map(Enum::name).toArray(String[]::new);
-                            } else if (itemType.equalsIgnoreCase("mi") && isPluginEnabled("MythicMobs")) {
-                                // TODO: Add MythicMobs item suggestions
-                                return new String[]{"MYTHIC_ITEM_ID"};
-                            }
-                            return new String[0];
-                        })),
+                        new StringArgument("type_id"),
                         new IntegerArgument("amount", 1)
                 })
                 .executes((sender, args) -> {
@@ -89,8 +78,8 @@ public class MangoUtilityCommand {
                             }
                             filter = ItemFilters.vanilla(material);
                         } else if (itemType.equalsIgnoreCase("mi")) {
-                            if (!isPluginEnabled("MythicMobs")) {
-                                sender.sendMessage("MythicMobs is not enabled.");
+                            if (!isPluginEnabled("MMOItems")) {
+                                sender.sendMessage("MMOItems is not enabled.");
                                 return;
                             }
 
@@ -104,7 +93,7 @@ public class MangoUtilityCommand {
                         }
                         filter = ItemFilters.mmoItems(mmoItemsType, mmoItemsIdentifier);
                         } else {
-                            sender.sendMessage("Invalid item type. Use 'v' for vanilla or 'mi' for MythicMobs.");
+                            sender.sendMessage("Invalid item type. Use 'v' for vanilla or 'mi' for MMOItems.");
                             return;
                         }
 
@@ -118,7 +107,15 @@ public class MangoUtilityCommand {
                     if (!found) {
                         sender.sendMessage(targetPlayer.getName() + " does not have " + amount + " of " + typeId + " in the specified slots.");
                     }
-                })
+                });
+        //Add all commands here
+
+        new CommandAPICommand("mango-utilities")
+                .withPermission(CommandPermission.fromString("mango.utilities.use"))
+                .withAliases("mgut,mut")
+                .withSubcommand(compare)
                 .register();
+
+
     }
 }
