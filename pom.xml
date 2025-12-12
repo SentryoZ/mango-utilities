@@ -71,7 +71,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/SentryoZ/mango-utilitie</url>
+      <url>https://maven.pkg.github.com/SentryoZ/mango-utilities</url>
     </repository>
   </distributionManagement>
 
