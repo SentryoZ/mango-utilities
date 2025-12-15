@@ -1,6 +1,7 @@
 package me.sentryozvn.mangoUtilities.Inventory;
 
 import io.lumine.mythic.lib.api.item.NBTItem;
+import me.sentryozvn.mangoUtilities.Util.ItemUtil;
 import org.bukkit.inventory.ItemStack;
 
 public class MMOItemsItemFilter implements ItemFilter {
@@ -17,13 +18,6 @@ public class MMOItemsItemFilter implements ItemFilter {
     if (item == null || type == null) return false;
 
     NBTItem mmoItem = NBTItem.get(item);
-
-    String foundType = mmoItem.getType();
-    String foundIdentifier = mmoItem.getString("MMOITEMS_ITEM_ID");
-
-    boolean typeMatches = foundType.equalsIgnoreCase(type);
-    boolean idMatches = (identifier == null || foundIdentifier.equalsIgnoreCase(identifier));
-
-    return typeMatches && idMatches;
+    return ItemUtil.compareMMMOItems(mmoItem, type, identifier);
   }
 }

@@ -1,18 +1,20 @@
 package me.sentryozvn.mangoUtilities.Util;
 
+import io.lumine.mythic.lib.api.item.NBTItem;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.List;
 import java.util.Map;
 
 public final class ItemUtil {
 
-  private ItemUtil() {}
+  private ItemUtil() {
+  }
 
   public static void applyItemFlags(ItemMeta meta, List<String> flags) {
     if (meta == null || flags == null) return;
@@ -63,7 +65,8 @@ public final class ItemUtil {
           name = s.substring(0, idx);
           try {
             level = Integer.parseInt(s.substring(idx + 1));
-          } catch (NumberFormatException ignored) {}
+          } catch (NumberFormatException ignored) {
+          }
         }
         addEnchant(meta, name, level);
       }
@@ -97,5 +100,15 @@ public final class ItemUtil {
 
     // Fallback to legacy byName
     return Enchantment.getByName(keyRaw.toUpperCase());
+  }
+
+  static public boolean compareMMMOItems(NBTItem mmoItem, String type, String identifier) {
+    String foundType = mmoItem.getType();
+    String foundIdentifier = mmoItem.getString("MMOITEMS_ITEM_ID");
+
+    boolean typeMatches = foundType.equalsIgnoreCase(type);
+    boolean idMatches = (identifier == null || foundIdentifier.equalsIgnoreCase(identifier));
+
+    return typeMatches && idMatches;
   }
 }
