@@ -12,7 +12,7 @@ public final class MangoUtilities extends JavaPlugin {
   public void onEnable() {
     instance = this;
     // register commands
-    MangoUtilityCommand mangoUtilityCommand = new MangoUtilityCommand(this);
+    new MangoUtilityCommand(this);
   }
 
   @Override

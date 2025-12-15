@@ -4,6 +4,9 @@ import com.github.stefvanschie.inventoryframework.gui.GuiItem;
 import com.github.stefvanschie.inventoryframework.gui.type.ChestGui;
 import com.github.stefvanschie.inventoryframework.pane.StaticPane;
 import com.github.stefvanschie.inventoryframework.pane.util.Slot;
+import io.lumine.mythic.api.skills.Skill;
+import io.lumine.mythic.api.skills.SkillManager;
+import io.lumine.mythic.bukkit.MythicBukkit;
 import me.sentryozvn.mangoUtilities.MangoUtilities;
 import me.sentryozvn.mangoUtilities.Util.CommandUtil;
 import me.sentryozvn.mangoUtilities.Util.ItemUtil;
@@ -55,6 +58,16 @@ public class ContainerBuilder {
         buildItemSlot(configKey, panel);
       });
     }
+
+    gui.setOnTopClick(event -> {
+      int slot = event.getRawSlot();
+
+      SkillManager skillManager = MythicBukkit.inst().getSkillManager();
+      Optional<Skill> skill = skillManager.getSkill("test");
+      
+    });
+
+
     if (!destroyWhenClose) {
       gui.setOnClose(event -> {
         for (int slotIndex : storageSlots) {
