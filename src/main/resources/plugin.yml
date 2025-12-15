@@ -5,12 +5,7 @@ api-version: '1.21'
 softdepend:
   - MythicMobs
   - MMOItems
-commands:
-  mango-utility:
-    description: Mango Utilities main command
-    usage: "/<command> compare <player_name> <slot> <v|mi> <type[:id]> [amount]"
-    aliases: [mutil, mgutil]
-    permission: mango.utilities.use
+depend: [CommandAPI]
 permissions:
   mango.utilities.use:
     description: Allows use of Mango Utilities commands
