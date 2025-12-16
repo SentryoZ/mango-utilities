@@ -26,3 +26,6 @@
 - [ ] Permissions System
 - [ ] Configuration Reload
 - [ ] PlaceholderAPI Integration
+  - [x] Party placeholder
+  - [ ] ...
+- [ ] ...

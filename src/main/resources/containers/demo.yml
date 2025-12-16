@@ -1,0 +1,52 @@
+title: "Demo Container"
+rows: 3
+
+# When true, items left in the container will be deleted when the player closes it
+destroyWhenClose: false
+
+# When true, items will remain in the container between sessions (overridden by destroyWhenClose)
+persist: true
+
+contents:
+  border:
+    slots: 0-8,18-26,9,17
+    material: BLACK_STAINED_GLASS_PANE
+    lore:
+      - "This is a demo border"
+    flags:
+      - HIDE_ATTRIBUTES
+
+  info:
+    slots: 13
+    material: PAPER
+    lore:
+      - "Welcome to the demo container"
+      - "Put your items in storage slots"
+    customModelData: 10000
+    flags:
+      - HIDE_ATTRIBUTES
+
+  storage-example:
+    # These are intended storage slots for future features
+    # Current implementation does not yet treat them specially
+    slots: 10-12,14-16
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    lore:
+      - "Intended storage area"
+    customModelData: 0
+    flags:
+      - HIDE_ATTRIBUTES
+
+  action-button:
+    slots: 22
+    material: EMERALD
+    lore:
+      - "Click to run a Mythic skill (demo)"
+    customModelData: 0
+    flags:
+      - HIDE_ATTRIBUTES
+    # Additional keys for future expansion (not yet consumed by code)
+    storage: false
+    slotName: "action"
+    runSkill: "test"
+    restrict: "VANILLA:ANY"

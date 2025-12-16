@@ -5,6 +5,7 @@ api-version: '1.21'
 softdepend:
   - MythicMobs
   - MMOItems
+  - PlaceholderAPI
 depend: [CommandAPI]
 permissions:
   mango.utilities.use:

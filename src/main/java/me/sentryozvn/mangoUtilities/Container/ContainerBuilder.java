@@ -89,7 +89,6 @@ public class ContainerBuilder {
    * slot: 5 / 1-2 / 1,2,3 / 1-5,7,8<br>
    * material: "STONE"
    * storage: true/false <- Can put item in this slot or not<br>
-   * slotName: "target" <- for Mythic Mobs skill can target<br>
    * runSkill: "skillNameHere" <- Mythic Mobs skill name<br>
    * restrict: SWORD:CUTLASS <- Restrict which item can put in storage <TYPE[:ID]>
    */

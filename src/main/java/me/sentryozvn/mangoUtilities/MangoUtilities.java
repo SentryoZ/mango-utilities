@@ -1,8 +1,11 @@
 package me.sentryozvn.mangoUtilities;
 
 import me.sentryozvn.mangoUtilities.Command.MangoUtilityCommand;
+import me.sentryozvn.mangoUtilities.PlacholderAPI.MangoPlaceholder;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import static me.sentryozvn.mangoUtilities.Util.PluginUtil.isPluginEnabled;
 
 public final class MangoUtilities extends JavaPlugin {
 
@@ -13,6 +16,10 @@ public final class MangoUtilities extends JavaPlugin {
     instance = this;
     // register commands
     new MangoUtilityCommand(this);
+
+    if (isPluginEnabled("PlaceholderAPI")) { //
+      new MangoPlaceholder().register(); //
+    }
   }
 
   @Override
